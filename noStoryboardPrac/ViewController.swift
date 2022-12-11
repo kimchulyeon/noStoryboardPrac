@@ -1,19 +1,32 @@
-//
-//  ViewController.swift
-//  noStoryboardPrac
-//
-//  Created by chulyeon kim on 2022/12/11.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		
+		self.view.backgroundColor = .systemBlue
 	}
-
-
 }
 
+#if DEBUG
+
+import SwiftUI
+
+struct ViewControllerPresentable: UIViewControllerRepresentable {
+	func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+		
+	}
+	func makeUIViewController(context: Context) -> some UIViewController {
+		ViewController()
+	}
+}
+
+struct ViewControllerPresentable_PreviewProvider: PreviewProvider {
+	static var previews: some View {
+		ViewControllerPresentable()
+			.ignoresSafeArea()
+	}
+}
+
+#endif
